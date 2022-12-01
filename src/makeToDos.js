@@ -1,9 +1,9 @@
-function newItem(title,description,dueDate,priority,complete) {
+function newItem(title,description,dueDate,priority) {
     this.title = title;
     this.description = description;
     this.dueDate = dueDate;
     this.priority = priority;
-    this.complete = complete;
+    this.complete = false;
 }
 
 export default newItem;

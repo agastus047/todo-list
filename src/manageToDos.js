@@ -21,7 +21,7 @@ const ToDoManager = (()=> {
    }
 
    function updateToDo(index) {
-        project = project.map((todo)=> todo.index === index ? {index: todo.index, title: todo.title, complete: !todo.complete} : todo,);
+        project = project.map((todo)=> todo.index === index ? todo : todo,);//{index: todo.index, title: todo.title, complete: todo.complete} : todo,);
         pubsub.publish("listChanged",project);
    }
    return {getProject, addToDo, deleteToDo, updateToDo};
