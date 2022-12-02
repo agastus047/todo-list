@@ -6,10 +6,23 @@ const render = (function() {
 
     const rootElem = document.querySelector('#content');
     
-   // function makeForm() {
+    const newToDoBtn = document.createElement('button');
+    newToDoBtn.classList.add('newTodoBtn');
+    newToDoBtn.textContent='Add To-Do';
+
+    newToDoBtn.addEventListener('click',makeForm);
+
+    rootElem.appendChild(newToDoBtn);
+
+    const displayElem = document.createElement('div');
+    displayElem.classList.add('displayElem');
+    rootElem.appendChild(displayElem);
+
+    function makeForm() {
+        displayElem.textContent='';
         const newToDoForm = document.createElement('form');
         newToDoForm.setAttribute('id','myForm');
-        rootElem.appendChild(newToDoForm);
+        displayElem.appendChild(newToDoForm);
         const formInput = document.createElement('input');
         formInput.setAttribute('type','text');
         formInput.setAttribute('id','formInput');
@@ -19,22 +32,25 @@ const render = (function() {
         //formButton.setAttribute('type','submit');
         formButton.textContent = 'SUBMIT';
         newToDoForm.appendChild(formButton);
-    //}
-    //makeForm();
 
-    const todolist = document.createElement('div');
-    todolist.classList.add('todolist');
-    rootElem.appendChild(todolist);
+        formButton.addEventListener('click',(e) => {
+            e.preventDefault();
+            addItem();
+        });
+    }
 
-    formButton.addEventListener('click',(e) => {
-        e.preventDefault();
-        addItem();
-    });
+    function makeListElement() {
+        const todolist = document.createElement('div');
+        todolist.classList.add('todolist');
+        displayElem.appendChild(todolist);
+    }
+
 
     function addItem() {
         const todo = new newItem();
         todo.title = formInput.value;
-        formInput.value = '';
+        displayElem.textContent='';
+        makeListElement();
         ToDoManager.addToDo(todo);
     }
     
@@ -42,6 +58,7 @@ const render = (function() {
     pubsub.subscribe("listChanged",initialLoad);
 
     function initialLoad(list) {
+        const todolist=document.querySelector('.todolist');
         todolist.textContent = '';
         list.forEach((todo) => {
             const todoElem = document.createElement('div');
@@ -61,6 +78,17 @@ const render = (function() {
                 todo.complete = !todo.complete;
                 ToDoManager.updateToDo(todo.index);
             });
+
+            const dltBtn = document.createElement('button');
+            dltBtn.textContent = 'DELETE';
+            dltBtn.classList.add = 'delete';
+            dltBtn.id = todo.index;
+            todoElem.appendChild(dltBtn);
+
+            dltBtn.addEventListener('click',()=> {
+                ToDoManager.deleteToDo(todo.index);
+            });
+
 
             todolist.appendChild(todoElem);
         });
