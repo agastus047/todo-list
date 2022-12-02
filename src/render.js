@@ -63,10 +63,7 @@ const render = (function() {
         list.forEach((todo) => {
             const todoElem = document.createElement('div');
             todoElem.classList.add('todo');
-            const todoTitle  = document.createElement('div');
-            todoTitle.classList.add('title');
-            todoTitle.textContent = todo.title;
-            todoElem.appendChild(todoTitle);
+            
             const checkBox = document.createElement('input');
             checkBox.setAttribute('type','checkbox');
             checkBox.classList.add('checkBox');
@@ -79,9 +76,14 @@ const render = (function() {
                 ToDoManager.updateToDo(todo.index);
             });
 
+            const todoTitle  = document.createElement('div');
+            todoTitle.classList.add('title');
+            todoTitle.textContent = todo.title;
+            todoElem.appendChild(todoTitle);
+
             const dltBtn = document.createElement('button');
             dltBtn.textContent = 'DELETE';
-            dltBtn.classList.add = 'delete';
+            dltBtn.setAttribute('class','delete');
             dltBtn.id = todo.index;
             todoElem.appendChild(dltBtn);
 
@@ -89,10 +91,41 @@ const render = (function() {
                 ToDoManager.deleteToDo(todo.index);
             });
 
+            const editBtn = document.createElement('button');
+            editBtn.textContent = 'EDIT';
+            editBtn.setAttribute('class','edit');
+            editBtn.id = todo.index;
+            todoElem.appendChild(editBtn);
+
+            editBtn.addEventListener('click',()=> {
+                displayElem.textContent='';
+                const newToDoForm = document.createElement('form');
+                newToDoForm.setAttribute('id','myForm');
+                displayElem.appendChild(newToDoForm);
+                const formInput = document.createElement('input');
+                formInput.setAttribute('type','text');
+                formInput.setAttribute('id','formInput');
+                formInput.setAttribute('required','');
+                formInput.value=todo.title;
+                newToDoForm.appendChild(formInput);
+                const formButton = document.createElement('button');
+                //formButton.setAttribute('type','submit');
+                formButton.textContent = 'SUBMIT';
+                newToDoForm.appendChild(formButton);
+
+                formButton.addEventListener('click', (e)=> {
+                    e.preventDefault();
+                    todo.title = formInput.value;
+                    displayElem.textContent='';
+                    makeListElement();
+                    ToDoManager.updateToDo(todo.index);
+                });
+            });
 
             todolist.appendChild(todoElem);
         });
     }
+
 })();
 
 export {render};
