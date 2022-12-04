@@ -1,7 +1,16 @@
 import pubsub from "./pubsub";
+import { ProjectManager } from "./manageProjects";
 
 const ToDoManager = (()=> {
-    let project = [];
+    let project = ProjectManager.getCurrentProject().projectTodos;
+
+    //subscribe to pubsub event
+     pubsub.subscribe('currentProjectChanged',selectProject);
+
+     function selectProject(currentProject) {
+          project = currentProject.projectTodos;
+          pubsub.publish('listChanged',project);
+     }
 
     function getProject() {
           return project;
