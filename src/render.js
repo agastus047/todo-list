@@ -19,6 +19,11 @@ const render = (function() {
     rootElem.appendChild(displayElem);
 
     function makeForm() {
+        //disabling add project and add todo buttons
+        const newProjectBtn = document.querySelector('.newProjectBtn');
+        newProjectBtn.setAttribute('disabled','');
+        newToDoBtn.setAttribute('disabled','');
+
         displayElem.textContent='';
         const newToDoForm = document.createElement('form');
         newToDoForm.setAttribute('id','myForm');
@@ -35,6 +40,10 @@ const render = (function() {
 
         formButton.addEventListener('click',(e) => {
             e.preventDefault();
+            //re-enabling add project and todo buttons
+            newProjectBtn.removeAttribute('disabled');
+            newToDoBtn.removeAttribute('disabled');
+            
             addItem();
         });
     }
