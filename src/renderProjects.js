@@ -87,7 +87,11 @@ const renderProjects = (()=> {
 
             projectList.appendChild(projElem);
         });
+        //disabling delete button of default project
+        const defaultDltBtn = document.querySelector('.projectList .project:first-child button[id="0"]');
+        defaultDltBtn.setAttribute('disabled','');
     }
+    
 })();
 
 export {renderProjects};
