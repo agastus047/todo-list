@@ -31,6 +31,7 @@ const renderProjects = (()=> {
         formInput.setAttribute('type','text');
         formInput.setAttribute('id','formInput');
         formInput.setAttribute('required','');
+        formInput.setAttribute('placeholder','Name');
         newProjectForm.appendChild(formInput);
         const formButton = document.createElement('button');
         formButton.textContent = 'SUBMIT';

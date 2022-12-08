@@ -4,7 +4,7 @@ import newProject from "./makeProject";
 const ProjectManager = (()=> {
     let projectList = [];
 
-    let defaultProject = new newProject('default');
+    let defaultProject = new newProject('Default');
 
     let currentProject = defaultProject;
     addProject(defaultProject);
