@@ -12,7 +12,8 @@ const render = (function() {
 
     newToDoBtn.addEventListener('click',makeForm);
 
-    rootElem.appendChild(newToDoBtn);
+    const header = document.querySelector('.header');
+    header.appendChild(newToDoBtn);
 
     const displayElem = document.createElement('div');
     displayElem.classList.add('displayElem');

@@ -6,16 +6,20 @@ const renderProjects = (()=> {
 
     const rootElem = document.querySelector('#content');
 
+    const projectSection = document.createElement('div');
+    projectSection.classList.add('projectSection');
+    rootElem.appendChild(projectSection);
+
     const newProjectBtn = document.createElement('button');
     newProjectBtn.classList.add('newProjectBtn');
     newProjectBtn.textContent='Add Project';
-    rootElem.appendChild(newProjectBtn);
+    projectSection.appendChild(newProjectBtn);
 
     newProjectBtn.addEventListener('click', makeForm);
 
     const displayProjects = document.createElement('div');
     displayProjects.classList.add('displayProjects');
-    rootElem.appendChild(displayProjects);
+    projectSection.appendChild(displayProjects);
 
     function makeForm() {
         //disabling add project and add todo buttons
