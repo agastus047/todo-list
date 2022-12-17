@@ -4,11 +4,11 @@ import pubsub from "./pubsub";
 
 const renderProjects = (()=> {
 
-    const rootElem = document.querySelector('#content');
+    const appBody = document.querySelector('.appBody');
 
     const projectSection = document.createElement('div');
     projectSection.classList.add('projectSection');
-    rootElem.appendChild(projectSection);
+    appBody.appendChild(projectSection);
 
     const newProjectBtn = document.createElement('button');
     newProjectBtn.classList.add('newProjectBtn');

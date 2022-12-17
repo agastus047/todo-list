@@ -10,6 +10,10 @@ const renderHeader = (function() {
     heading.classList.add('heading');
     heading.textContent = 'Todo List';
     header.appendChild(heading);
+
+    const appBody = document.createElement('div');
+    appBody.classList.add('appBody');
+    rootElem.appendChild(appBody);
 })();
 
 export {renderHeader};

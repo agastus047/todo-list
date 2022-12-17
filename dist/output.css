@@ -513,11 +513,89 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.bg-teal-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(20 184 166 / var(--tw-bg-opacity));
-}
-
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+#content {
+  height: 100vh;
+  padding: 0.75rem;
+}
+
+button {
+  border-width: 1px;
+}
+
+#content .header {
+  display: flex;
+  justify-content: space-between;
+  border-width: 1px;
+}
+
+@media (min-width: 640px) {
+  .appBody {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+  }
+}
+
+.displayProjects .projectList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.projectSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.projectSection .newProjectBtn {
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+
+.projectList .project {
+  display: flex;
+  justify-content: space-between;
+}
+
+.todolist .todo {
+  display: grid;
+  grid-template-columns: 1fr 3fr 3fr 1fr 1fr;
+}
+
+.todolist .todo .checkBox {
+  height: 1rem;
+  width: 1rem;
+  border-radius: 0.25rem;
+  --tw-border-opacity: 1;
+  border-color: rgb(209 213 219 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(37 99 235 / var(--tw-text-opacity));
+}
+
+.todolist .todo .checkBox:focus {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(59 130 246 / var(--tw-ring-opacity));
+}
+
+@media (prefers-color-scheme: dark) {
+  .todolist .todo .checkBox {
+    --tw-border-opacity: 1;
+    border-color: rgb(107 114 128 / var(--tw-border-opacity));
+    --tw-bg-opacity: 1;
+    background-color: rgb(75 85 99 / var(--tw-bg-opacity));
+    --tw-ring-offset-color: #374151;
+  }
+
+  .todolist .todo .checkBox:focus {
+    --tw-ring-opacity: 1;
+    --tw-ring-color: rgb(37 99 235 / var(--tw-ring-opacity));
+  }
 }

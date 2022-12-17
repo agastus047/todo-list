@@ -4,7 +4,7 @@ import { ToDoManager } from "./manageToDos";
 
 const render = (function() {
 
-    const rootElem = document.querySelector('#content');
+    const appBody = document.querySelector('.appBody');
     
     const newToDoBtn = document.createElement('button');
     newToDoBtn.classList.add('newTodoBtn');
@@ -17,7 +17,7 @@ const render = (function() {
 
     const displayElem = document.createElement('div');
     displayElem.classList.add('displayElem');
-    rootElem.appendChild(displayElem);
+    appBody.appendChild(displayElem);
 
     function makeForm() {
         //disabling add project and add todo buttons
