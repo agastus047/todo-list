@@ -3,41 +3,93 @@
 @tailwind utilities;
 
 #content {
-    @apply h-screen p-3;
+    @apply h-screen bg-slate-100;
 }
 
 button {
-    @apply border;
+    @apply border rounded border-black;
 }
 
 #content .header {
-    @apply flex justify-between border;
+    @apply flex justify-between border bg-black text-white p-3; 
 }
 
 .appBody {
-    @apply sm:grid sm:grid-cols-[1fr_3fr];
+    @apply sm:grid sm:grid-cols-[1fr_3fr] sm:gap-5;
 }
 
 .displayProjects .projectList {
-    @apply grid grid-cols-2;
+    @apply grid grid-cols-2 sm:flex sm:flex-col gap-3;
 }
 
 .projectSection {
-    @apply flex flex-col;
+    @apply flex flex-col border mb-5 gap-4 sm:gap-6 sm:mb-0
+    bg-slate-300 rounded p-3;
 }
 
 .projectSection .newProjectBtn {
-    @apply w-2/5 ml-auto mr-auto;
+    @apply w-2/5 ml-auto mr-auto sm:w-1/2 bg-slate-400;
 }
 
 .projectList .project {
-    @apply flex justify-between;
+    @apply flex justify-between gap-2 hover:bg-slate-400
+    border border-black rounded p-1 items-center;
 }
 
 .todolist .todo {
-    @apply grid grid-cols-[1fr_3fr_3fr_1fr_1fr];
+    @apply grid grid-cols-[1fr_3fr_3fr_1fr_1fr] gap-2 items-center
+    border border-slate-500 rounded mb-3 sm:p-0.5;
 }
 
 .todolist .todo .checkBox {
-    @apply w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500;
+    @apply w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500
+    self-center justify-self-center;
+}
+
+.todolist .todo .title {
+    @apply col-start-2;
+}
+
+.todolist .todo .dueDate {
+    @apply col-start-3;
+}
+
+.projectSection .displayProjects #myForm {
+    @apply text-center;
+}
+
+.displayElem #myForm {
+    @apply flex flex-col items-center gap-2 border border-gray-500 rounded p-3;
+}
+
+.header .heading {
+    @apply text-4xl;
+}
+
+.appBody .displayElem {
+    @apply sm:mr-3 sm:pt-3;
+}
+
+.header .newTodoBtn {
+    @apply border-white;
+}
+
+.projectList .project .delete {
+    @apply bg-neutral-400 p-0.5;
+}
+
+.todolist .todo button {
+    @apply bg-neutral-400;
+}
+
+.displayProjects #myForm #formInput, .displayElem #myForm #formInput, .displayElem #myForm #dueDateInput, .displayElem #myForm select {
+    @apply border border-gray-500;
+}
+
+.displayProjects #myForm button {
+    @apply bg-neutral-400 m-2;
+}
+
+.displayElem #myForm button {
+    @apply bg-neutral-400;
 }
