@@ -15,7 +15,8 @@ button {
 }
 
 .appBody {
-    @apply sm:grid sm:grid-cols-[1fr_3fr] sm:gap-5;
+    @apply sm:grid sm:grid-cols-[1fr_3fr] sm:gap-5 sm:h-full
+    bg-slate-100;
 }
 
 .displayProjects .projectList {
@@ -24,7 +25,7 @@ button {
 
 .projectSection {
     @apply flex flex-col border mb-5 gap-4 sm:gap-6 sm:mb-0
-    bg-slate-300 rounded p-3;
+    bg-slate-300 rounded p-3 sm:h-full;
 }
 
 .projectSection .newProjectBtn {
@@ -67,7 +68,7 @@ button {
 }
 
 .appBody .displayElem {
-    @apply sm:mr-3 sm:pt-3;
+    @apply sm:mr-3 sm:pt-3 sm:h-full;
 }
 
 .header .newTodoBtn {

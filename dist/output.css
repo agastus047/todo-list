@@ -541,9 +541,15 @@ button {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.appBody {
+  --tw-bg-opacity: 1;
+  background-color: rgb(241 245 249 / var(--tw-bg-opacity));
+}
+
 @media (min-width: 640px) {
   .appBody {
     display: grid;
+    height: 100%;
     grid-template-columns: 1fr 3fr;
     gap: 1.25rem;
   }
@@ -577,6 +583,7 @@ button {
 @media (min-width: 640px) {
   .projectSection {
     margin-bottom: 0px;
+    height: 100%;
     gap: 1.5rem;
   }
 }
@@ -699,6 +706,7 @@ button {
 @media (min-width: 640px) {
   .appBody .displayElem {
     margin-right: 0.75rem;
+    height: 100%;
     padding-top: 0.75rem;
   }
 }
