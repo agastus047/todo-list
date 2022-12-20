@@ -22,8 +22,8 @@ const ProjectManager = (()=> {
         projectList.push(newproj);
         pubsub.publish('projectsChanged',projectList);
     }
-    //check condition when current project is deleted
-    //or make sure current project is never deleted
+    //check condition when default project is deleted
+    //or make sure default project is never deleted
     function deleteProject(index) {
         projectList = projectList.filter((project) => project.index !== index);
         for(let i=0;i<projectList.length;i++){
