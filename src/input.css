@@ -39,7 +39,7 @@ button {
 
 .todolist .todo {
     @apply grid grid-cols-[1fr_3fr_3fr_1fr_1fr] gap-2 items-center
-    border border-slate-500 rounded mb-3 sm:p-0.5;
+    border border-slate-500 rounded mb-3 sm:p-0.5 bg-orange-50;
 }
 
 .todolist .todo .checkBox {

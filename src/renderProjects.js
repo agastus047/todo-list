@@ -1,6 +1,6 @@
+import pubsub from "./pubsub";
 import newProject from "./makeProject";
 import { ProjectManager } from "./manageProjects";
-import pubsub from "./pubsub";
 
 const renderProjects = (()=> {
 

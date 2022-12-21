@@ -1,6 +1,7 @@
 import pubsub from "./pubsub";
 import newItem from "./makeToDos";
 import { ToDoManager } from "./manageToDos";
+import { ProjectManager } from "./manageProjects";
 
 const render = (function() {
 
@@ -95,6 +96,8 @@ const render = (function() {
     
     //subscribe to pubsub event
     pubsub.subscribe("listChanged",initialLoad);
+    makeListElement();
+    initialLoad(ProjectManager.getCurrentProject().projectTodos);
 
     function initialLoad(list) {
         const todolist=document.querySelector('.todolist');
